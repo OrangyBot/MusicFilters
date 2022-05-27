@@ -1,0 +1,31 @@
+{
+  "name": "@orangybot/musicfilters",
+  "version": "1.0.0",
+  "description": "Orangy's official erela.js music filters package.",
+  "main": "Build/Index.js",
+  "scripts": {
+    "build": "tsc",
+    "prettier": "prettier --write ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/OrangyBot/MusicFilters.git"
+  },
+  "keywords": [
+    "orangy",
+    "musicfilters",
+    "orangybot"
+  ],
+  "author": "DottoXD",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/OrangyBot/MusicFilters/issues"
+  },
+  "homepage": "https://github.com/OrangyBot/MusicFilters#readme",
+  "devDependencies": {
+    "erela.js": "latest",
+    "prettier": "^2.6.2",
+    "ts-node": "^10.8.0",
+    "typescript": "^4.7.2"
+  }
+}

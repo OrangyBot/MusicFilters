@@ -1,4 +1,6 @@
-declare module "@orangybot/musicfilters";
+declare module "@orangybot/musicfilters" {
+  constructor();
+}
 
 import * as Erela from "erela.js";
 declare module "erela.js" {

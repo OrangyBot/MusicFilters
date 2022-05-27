@@ -1,20 +1,11 @@
-import { Plugin, Manager, Structure } from "erela.js";
+import { Plugin, Structure } from "erela.js";
 import { join } from "path";
 import { readdirSync } from "fs";
 
 let EnabledFilters: string[] = [];
 
 export default class OrangyMusicFilters extends Plugin {
-  private ErelaManager;
-
-  public constructor() {
-    super();
-    console.log("Hi!");
-  }
-
-  public load(ErelaManager: Manager) {
-    this.ErelaManager = ErelaManager;
-
+  public load() {
     Structure.extend(
       "Player",
       (Player) =>

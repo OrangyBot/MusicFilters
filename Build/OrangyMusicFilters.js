@@ -5,12 +5,7 @@ const path_1 = require("path");
 const fs_1 = require("fs");
 let EnabledFilters = [];
 class OrangyMusicFilters extends erela_js_1.Plugin {
-    constructor() {
-        super();
-        console.log("Hi!");
-    }
-    load(ErelaManager) {
-        this.ErelaManager = ErelaManager;
+    load() {
         erela_js_1.Structure.extend("Player", (Player) => class extends Player {
             constructor() {
                 super(...arguments);

@@ -1,11 +1,9 @@
-declare module "@orangybot/musicfilters" {
-  constructor();
-}
+declare module "@orangybot/musicfilters";
 
-import * as Erela from "erela.js";
 declare module "erela.js" {
+  import * as Erela from "erela.js";
   interface Player {
-    EnableFilter(Filter: string): function;
-    DisableFilter(Filter: string): function;
+    EnableFilter(Filter: string): Function;
+    DisableFilter(Filter: string): Function;
   }
 }

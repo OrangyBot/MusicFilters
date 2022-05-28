@@ -4,7 +4,11 @@ import { readdirSync } from "fs";
 
 let EnabledFilters: string[] = [];
 
-export default class OrangyMusicFilters extends Plugin {
+export class OrangyMusicFilters extends Plugin {
+  constructor() {
+    super();
+  }
+
   public load() {
     Structure.extend(
       "Player",

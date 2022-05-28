@@ -1,10 +1,14 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.OrangyMusicFilters = void 0;
 const erela_js_1 = require("erela.js");
 const path_1 = require("path");
 const fs_1 = require("fs");
 let EnabledFilters = [];
 class OrangyMusicFilters extends erela_js_1.Plugin {
+    constructor() {
+        super();
+    }
     load() {
         erela_js_1.Structure.extend("Player", (Player) => class extends Player {
             constructor() {
@@ -39,4 +43,4 @@ class OrangyMusicFilters extends erela_js_1.Plugin {
         });
     }
 }
-exports.default = OrangyMusicFilters;
+exports.OrangyMusicFilters = OrangyMusicFilters;

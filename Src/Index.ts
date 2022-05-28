@@ -1,2 +1,3 @@
-import OrangyMusicFilters from "./OrangyMusicFilters";
+import "./ErelaExtension";
+import { OrangyMusicFilters } from "./OrangyMusicFilters";
 export = OrangyMusicFilters;

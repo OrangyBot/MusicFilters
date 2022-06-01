@@ -1,4 +1,3 @@
-<div align="center">
 # Orangy's MusicFilters package.
 This is Orangy's official package for erela.js music filters!
 
@@ -7,9 +6,7 @@ This is Orangy's official package for erela.js music filters!
 [X] Open source
 [X] Easy to use
 [X] Fast
-</div>
 
-<div align="center">
 # Available filters
 [X] BassBoost
 [X] Karaoke
@@ -18,9 +15,7 @@ This is Orangy's official package for erela.js music filters!
 [X] Speed
 [X] Unstable
 [X] Weak
-</div>
 
-<div align="center">
 ## How to use
 ```javascript
 //ES6:
@@ -65,4 +60,3 @@ GuildPlayer.EnableFilter("Speed");
 //Disable the Speed filter
 GuildPlayer.DisableFilter("Speed");
 ```
-</div>

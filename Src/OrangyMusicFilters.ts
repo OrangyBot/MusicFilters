@@ -1,47 +1,51 @@
 import { Plugin, Structure } from "erela.js";
-import { join } from "path";
-import { readdirSync } from "fs";
 
-let EnabledFilters: string[] = [];
+type Filter =
+  | "BassBoost"
+  | "Karaoke"
+  | "Lofi"
+  | "Smooth"
+  | "Speed"
+  | "Unstable"
+  | "Weak";
 
-export class OrangyMusicFilters extends Plugin {
-  constructor() {
-    super();
-  }
-
+export default class MusicFilters extends Plugin {
   public load() {
     Structure.extend(
       "Player",
       (Player) =>
         class extends Player {
-          EnableFilter = (RequestedFilter: string) => {
-            const Filters = readdirSync(join(__dirname, "Filters"));
-            for (const Filter of Filters) {
-              switch (Filter) {
-                case RequestedFilter:
-                  EnabledFilters.push(Filter);
-                  const FilterFile = require(join(__dirname, "Filters") +
-                    `/${Filter}`);
-                  FilterFile.Enable(this);
-                  return "Enabled " + Filter;
-              }
+          public EnabledFilters: string[] = [];
+          public EnableFilter = (RequestedFilter: Filter) => {
+            switch (RequestedFilter) {
+              case null:
+                return;
+              default:
+                const { Enable } = require("./Filters/Enable");
+                Enable(this, this.EnabledFilters, RequestedFilter);
+                return "Enabled " + RequestedFilter;
             }
           };
 
-          DisableFilter = (RequestedFilter: string) => {
-            const Filters = readdirSync(join(__dirname, "Filters"));
-            for (const Filter of Filters) {
-              switch (Filter) {
-                case RequestedFilter:
-                  EnabledFilters.splice(EnabledFilters.indexOf(Filter), 1);
-                  const FilterFile = require(join(__dirname, "Filters") +
-                    `/${Filter}`);
-                  FilterFile.Disable(this);
-                  return "Disabled " + Filter;
-              }
+          public DisableFilter = (RequestedFilter: Filter) => {
+            switch (RequestedFilter) {
+              case null:
+                return;
+              default:
+                const { Disable } = require("./Filters/Disable");
+                Disable(this, this.EnabledFilters, RequestedFilter);
+                return "Disabled " + RequestedFilter;
             }
           };
         }
     );
+  }
+}
+
+declare module "erela.js/structures/Player" {
+  interface Player {
+    EnabledFilters: string[];
+    EnableFilter: (RequestedFilter: Filter) => string;
+    DisableFilter: (RequestedFilter: Filter) => string;
   }
 }

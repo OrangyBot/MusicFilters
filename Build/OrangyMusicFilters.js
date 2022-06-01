@@ -1,46 +1,34 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.OrangyMusicFilters = void 0;
 const erela_js_1 = require("erela.js");
-const path_1 = require("path");
-const fs_1 = require("fs");
-let EnabledFilters = [];
-class OrangyMusicFilters extends erela_js_1.Plugin {
-    constructor() {
-        super();
-    }
+class MusicFilters extends erela_js_1.Plugin {
     load() {
         erela_js_1.Structure.extend("Player", (Player) => class extends Player {
             constructor() {
                 super(...arguments);
+                this.EnabledFilters = [];
                 this.EnableFilter = (RequestedFilter) => {
-                    const Filters = (0, fs_1.readdirSync)((0, path_1.join)(__dirname, "Filters"));
-                    for (const Filter of Filters) {
-                        switch (Filter) {
-                            case RequestedFilter:
-                                EnabledFilters.push(Filter);
-                                const FilterFile = require((0, path_1.join)(__dirname, "Filters") +
-                                    `/${Filter}`);
-                                FilterFile.Enable(this);
-                                return "Enabled " + Filter;
-                        }
+                    switch (RequestedFilter) {
+                        case null:
+                            return;
+                        default:
+                            const { Enable } = require("./Filters/Enable");
+                            Enable(this, this.EnabledFilters, RequestedFilter);
+                            return "Enabled " + RequestedFilter;
                     }
                 };
                 this.DisableFilter = (RequestedFilter) => {
-                    const Filters = (0, fs_1.readdirSync)((0, path_1.join)(__dirname, "Filters"));
-                    for (const Filter of Filters) {
-                        switch (Filter) {
-                            case RequestedFilter:
-                                EnabledFilters.splice(EnabledFilters.indexOf(Filter), 1);
-                                const FilterFile = require((0, path_1.join)(__dirname, "Filters") +
-                                    `/${Filter}`);
-                                FilterFile.Disable(this);
-                                return "Disabled " + Filter;
-                        }
+                    switch (RequestedFilter) {
+                        case null:
+                            return;
+                        default:
+                            const { Disable } = require("./Filters/Disable");
+                            Disable(this, this.EnabledFilters, RequestedFilter);
+                            return "Disabled " + RequestedFilter;
                     }
                 };
             }
         });
     }
 }
-exports.OrangyMusicFilters = OrangyMusicFilters;
+exports.default = MusicFilters;

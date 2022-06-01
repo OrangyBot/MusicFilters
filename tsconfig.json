@@ -7,7 +7,9 @@
     "outDir": "./Build",
     "moduleResolution": "node",
     "skipLibCheck": true,
-    "strict": true
+    "declaration": true,
+    "strict": false,
+    "resolveJsonModule": true
   },
   "exclude": ["node_modules", "Build"]
 }

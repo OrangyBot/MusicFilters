@@ -1,22 +1,25 @@
 # Orangy's MusicFilters package.
+
 This is Orangy's official package for erela.js music filters!
 
-[X] Multiple filters support
-[X] Erela.js support
-[X] Open source
-[X] Easy to use
-[X] Fast
+:white_check_mark: Multiple filters support
+:white_check_mark: Erela.js support
+:white_check_mark: Open source
+:white_check_mark: Easy to use
+:white_check_mark: Fast
 
 # Available filters
-[X] BassBoost
-[X] Karaoke
-[X] Lofi
-[X] Smooth
-[X] Speed
-[X] Unstable
-[X] Weak
+
+:white_check_mark: BassBoost
+:white_check_mark: Karaoke
+:white_check_mark: Lofi
+:white_check_mark: Smooth
+:white_check_mark: Speed
+:white_check_mark: Unstable
+:white_check_mark: Weak
 
 ## How to use
+
 ```javascript
 //ES6:
 import { Manager } from "erela.js";

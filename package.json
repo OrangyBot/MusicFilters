@@ -1,6 +1,6 @@
 {
   "name": "@orangybot/musicfilters",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Orangy's official erela.js music filters package.",
   "main": "Build/Index.js",
   "scripts": {

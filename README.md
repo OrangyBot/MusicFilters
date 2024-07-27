@@ -1,5 +1,6 @@
 # Orangy's MusicFilters package.
 
+## NOTE: This project is no longer maintained and archived as of 27/07/2024.
 This is Orangy's official package for erela.js music filters!
 
 :white_check_mark: Multiple filters support
